@@ -21,11 +21,24 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int chrysanthemum=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int koala=0x7f020002;
+        public static final int lighthouse=0x7f020003;
+        public static final int penguins=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f080001;
-        public static final int imageButton1=0x7f080000;
+        public static final int action_settings=0x7f08000a;
+        public static final int content=0x7f080009;
+        public static final int imageButton1=0x7f080001;
+        public static final int imageButton2=0x7f080002;
+        public static final int imageButton3=0x7f080003;
+        public static final int imageButton4=0x7f080004;
+        public static final int imageButton5=0x7f080005;
+        public static final int imageButton6=0x7f080006;
+        public static final int imageButton7=0x7f080007;
+        public static final int imageButton8=0x7f080008;
+        public static final int pager=0x7f080000;
     }
     public static final class layout {
         public static final int activity_como_chegar=0x7f030000;
@@ -35,6 +48,11 @@ public final class R {
         public static final int activity_main=0x7f030004;
         public static final int activity_pagina_inicial=0x7f030005;
         public static final int activity_tour=0x7f030006;
+        public static final int itemmenucomochegar=0x7f030007;
+        public static final int itemmenucontato=0x7f030008;
+        public static final int itemmenugaleria=0x7f030009;
+        public static final int itemmenutour=0x7f03000a;
+        public static final int oldactivity_main=0x7f03000b;
     }
     public static final class menu {
         public static final int como_chegar=0x7f070000;
