@@ -10,16 +10,43 @@ import android.view.ViewGroup;
 
 public class ScreenSlidePageFragment extends Fragment{
 
-	public int position; 	
-	public ScreenSlidePageFragment(int position) {
-		this.position = position;
+	/*private int position; 
+	
+	public int getPosition() {
+		return position;
 	}
+
+	public void setPosition(int position) {
+		this.position = position;
+	}*/
+	 public static final String ARG_PAGE = "page";
+	 
+	 private int mPageNumber;
+	 
+	 public static ScreenSlidePageFragment create(int pageNumber) {
+	        ScreenSlidePageFragment fragment = new ScreenSlidePageFragment();
+	        Bundle args = new Bundle();
+	        args.putInt(ARG_PAGE, pageNumber);
+	        fragment.setArguments(args);
+	        return fragment;
+	    }
+	
+	public ScreenSlidePageFragment(){
+		
+	}
+	
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mPageNumber = getArguments().getInt(ARG_PAGE);
+    }
 
 	@Override
 	 public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) {
 		ViewGroup rootView;
-		switch (this.position) {
+		
+		switch (this.mPageNumber) {
 			case 0:
 				rootView = (ViewGroup) inflater.inflate(
 		                R.layout.itemmenugaleria, container, false);
@@ -42,11 +69,14 @@ public class ScreenSlidePageFragment extends Fragment{
 				
 			default:
 				rootView = (ViewGroup) inflater.inflate(
-		                R.layout.itemmenugaleria, container, false);
+		                R.layout.itemmenucomochegar, container, false);
 				break;
 		}
 		
-	       
 	     return rootView;
 	 }
+	
+	  public int getPageNumber() {
+	        return mPageNumber;
+	  }
 }
