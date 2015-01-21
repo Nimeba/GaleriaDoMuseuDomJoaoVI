@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 public class Contatos extends Activity implements OnClickListener {
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
