@@ -6,13 +6,38 @@
 
     <uses-sdk
         android:minSdkVersion="9"
-        android:targetSdkVersion="19" />   
-
+        android:targetSdkVersion="19" />  
+    
+     <!-- Codigo para utilizacao dos mapas - Inicio -->
+    
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+      
+    <uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	
+	<!-- The following two permissions are not required to use
+     Google Maps Android API v2, but are recommended. -->
+	
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    
+	<!-- Codigo para utilizacao dos mapas - Inicio -->
+	
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <!-- Codigo para utilizacao dos mapas - Inicio -->
+        <meta-data
+    		android:name="com.google.android.gms.version"
+    		android:value="@integer/google_play_services_version" />
+        <!-- Codigo para utilizacao dos mapas - Fim -->
+        
         <activity
             android:name="com.example.galeriadomuseudomjoaovi.MainActivity"
             android:label="@string/app_name" >
@@ -46,6 +71,13 @@
             android:name="com.example.galeriadomuseudomjoaovi.Tour"
             android:label="@string/title_activity_tour" >
         </activity>
+        
+        <!-- Codigo para utilizacao dos mapas - Inicio -->
+        <meta-data
+    		android:name="com.google.android.maps.v2.API_KEY"
+    		android:value="AIzaSyBI4oEu7k-FWNXjUY0YAf3G9tcVvDSh4UI"/>
+        <!-- Codigo para utilizacao dos mapas - Fim -->
+        
     </application>
 
 </manifest>
