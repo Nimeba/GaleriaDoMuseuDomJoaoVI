@@ -460,19 +460,21 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_light=0x7f02001d;
         public static final int contatos2=0x7f02001e;
         public static final int contatos_g=0x7f02001f;
-        public static final int ic_launcher=0x7f020020;
-        public static final int ic_plusone_medium_off_client=0x7f020021;
-        public static final int ic_plusone_small_off_client=0x7f020022;
-        public static final int ic_plusone_standard_off_client=0x7f020023;
-        public static final int ic_plusone_tall_off_client=0x7f020024;
-        public static final int koala=0x7f020025;
-        public static final int lighthouse=0x7f020026;
-        public static final int penguins=0x7f020027;
-        public static final int powered_by_google_dark=0x7f020028;
-        public static final int powered_by_google_light=0x7f020029;
+        public static final int flag=0x7f020020;
+        public static final int flag2=0x7f020021;
+        public static final int ic_launcher=0x7f020022;
+        public static final int ic_plusone_medium_off_client=0x7f020023;
+        public static final int ic_plusone_small_off_client=0x7f020024;
+        public static final int ic_plusone_standard_off_client=0x7f020025;
+        public static final int ic_plusone_tall_off_client=0x7f020026;
+        public static final int koala=0x7f020027;
+        public static final int lighthouse=0x7f020028;
+        public static final int penguins=0x7f020029;
+        public static final int powered_by_google_dark=0x7f02002a;
+        public static final int powered_by_google_light=0x7f02002b;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b002d;
+        public static final int action_settings=0x7f0b002e;
         public static final int adjust_height=0x7f0b0000;
         public static final int adjust_width=0x7f0b0001;
         public static final int book_now=0x7f0b0010;
@@ -484,7 +486,7 @@ containing a value of this type.
         public static final int buy_now=0x7f0b0011;
         public static final int buy_with_google=0x7f0b0012;
         public static final int classic=0x7f0b0014;
-        public static final int content=0x7f0b0028;
+        public static final int content=0x7f0b0029;
         public static final int donate_with_google=0x7f0b0013;
         public static final int grayscale=0x7f0b0015;
         public static final int holo_dark=0x7f0b0007;
@@ -498,13 +500,14 @@ containing a value of this type.
         public static final int imageButton6=0x7f0b0025;
         public static final int imageButton7=0x7f0b0026;
         public static final int imageButton8=0x7f0b0027;
-        public static final int imageButtonComoChegar=0x7f0b0029;
-        public static final int imageButtonContato=0x7f0b002a;
-        public static final int imageButtonGaleria=0x7f0b002b;
-        public static final int imageButtonTour=0x7f0b002c;
+        public static final int imageButtonComoChegar=0x7f0b002a;
+        public static final int imageButtonContato=0x7f0b002b;
+        public static final int imageButtonGaleria=0x7f0b002c;
+        public static final int imageButtonTour=0x7f0b002d;
         public static final int imgAgradecimentos=0x7f0b0018;
         public static final int imgContatos=0x7f0b0019;
         public static final int imgEquipe=0x7f0b001a;
+        public static final int info_txt=0x7f0b0028;
         public static final int map=0x7f0b0017;
         public static final int match_parent=0x7f0b000e;
         public static final int monochrome=0x7f0b0016;
@@ -530,11 +533,12 @@ containing a value of this type.
         public static final int activity_main=0x7f030004;
         public static final int activity_pagina_inicial=0x7f030005;
         public static final int activity_tour=0x7f030006;
-        public static final int itemmenucomochegar=0x7f030007;
-        public static final int itemmenucontato=0x7f030008;
-        public static final int itemmenugaleria=0x7f030009;
-        public static final int itemmenutour=0x7f03000a;
-        public static final int oldactivity_main=0x7f03000b;
+        public static final int info_mapa=0x7f030007;
+        public static final int itemmenucomochegar=0x7f030008;
+        public static final int itemmenucontato=0x7f030009;
+        public static final int itemmenugaleria=0x7f03000a;
+        public static final int itemmenutour=0x7f03000b;
+        public static final int oldactivity_main=0x7f03000c;
     }
     public static final class menu {
         public static final int como_chegar=0x7f0a0000;
@@ -657,7 +661,6 @@ containing a value of this type.
         public static final int create_calendar_title=0x7f060004;
         public static final int decline=0x7f060003;
         public static final int hello_world=0x7f060025;
-        public static final int pt=0x7f06002e;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
         public static final int title_activity_como_chegar=0x7f060027;

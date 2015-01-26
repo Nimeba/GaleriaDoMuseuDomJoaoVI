@@ -1,21 +1,26 @@
 <!-- fragment_screen_slide_page.xml -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <!--  <TextView style="?android:textAppearanceMedium"
+    <!--
+          <TextView style="?android:textAppearanceMedium"
         android:padding="16dp"
         android:lineSpacingMultiplier="1.2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />-->
+        android:text="@string/hello_world" />
+    -->
 
     <ImageButton
         android:id="@+id/imageButtonContato"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chrysanthemum" 
-        android:onClick="btnContatos" />
-    
+        android:layout_height="match_parent"
+        android:onClick="btnContatos"
+        android:scaleType="center"
+        android:src="@drawable/btn_contatos"
+        tools:ignore="ContentDescription" />
+
 </ScrollView>

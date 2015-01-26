@@ -15,7 +15,7 @@
         android:id="@+id/imageButtonComoChegar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/koala"
-        android:onClick="btnComoChegar" />
+        android:onClick="btnComoChegar"
+        android:src="@drawable/btn_comochegar" />
     
 </ScrollView>

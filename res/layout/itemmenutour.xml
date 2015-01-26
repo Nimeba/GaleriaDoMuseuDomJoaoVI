@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:onClick="btnTour"
-        android:src="@drawable/lighthouse"
+        android:src="@drawable/btn_tourvirtual"
         tools:ignore="ScrollViewSize,ContentDescription" />
 
 </ScrollView>
