@@ -18,15 +18,14 @@ public class Contatos extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_contatos);
 		
 		ImageButton voltar = (ImageButton) findViewById(R.id.btnVoltar);
-		voltar.setOnClickListener(this);
-		
 		ImageButton agradecimentos = (ImageButton) findViewById(R.id.btnAgradecimentos);
-		agradecimentos.setOnClickListener(this);
-		
 		ImageButton contatos = (ImageButton) findViewById(R.id.btnContatos);
-		contatos.setOnClickListener(this);
-		
 		ImageButton equipe = (ImageButton) findViewById(R.id.btnEquipe);
+		
+		
+		voltar.setOnClickListener(this);
+		agradecimentos.setOnClickListener(this);
+		contatos.setOnClickListener(this);
 		equipe.setOnClickListener(this);
 		
 	}
@@ -38,6 +37,7 @@ public class Contatos extends Activity implements OnClickListener {
 		return true;
 	}
 
+		
 	@Override
 	public void onClick(View v) {
 		
@@ -45,9 +45,9 @@ public class Contatos extends Activity implements OnClickListener {
 		ImageView imgAgradecimentos = (ImageView) findViewById(R.id.imgAgradecimentos);
 		ImageView imgEquipe = (ImageView) findViewById(R.id.imgEquipe);
 		
-		
+	
 		switch (v.getId()) {
-		
+
 			case R.id.btnAgradecimentos:
 				imgAgradecimentos.setVisibility(imgAgradecimentos.VISIBLE);
 				imgContatos.setVisibility(imgContatos.INVISIBLE);
@@ -75,3 +75,4 @@ public class Contatos extends Activity implements OnClickListener {
 		}	
 	}
 }
+

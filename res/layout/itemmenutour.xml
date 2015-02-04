@@ -18,8 +18,8 @@
         android:id="@+id/imageButtonTour"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/btn_tourvirtual"
         android:onClick="btnTour"
-        android:src="@drawable/btn_tourvirtual"
         tools:ignore="ScrollViewSize,ContentDescription" />
 
 </ScrollView>

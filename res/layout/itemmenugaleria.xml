@@ -12,12 +12,12 @@
     android:orientation="horizontal"
      >
 
-    <ImageButton
-        android:id="@+id/imageButtonGaleria"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnGaleria"
-        android:src="@drawable/btn_galeria" />
+        <ImageButton
+            android:id="@+id/imageButtonGaleria"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_galeria"
+            android:onClick="btnGaleria" />
      
      </LinearLayout>
  </ScrollView>
