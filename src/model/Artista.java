@@ -39,7 +39,8 @@ public class Artista {
 	
 	public static ArrayList<Artista> selectAll(SQLiteDatabase db) {
 		
-		ArrayList<Artista> list = new ArrayList<Artista>();				
+		ArrayList<Artista> list = new ArrayList<Artista>();	
+		list.add(new Artista(-1,"Todos"));
 		
 		String[] colunas = new String[] { "_id" , "nome"}; 
 		 

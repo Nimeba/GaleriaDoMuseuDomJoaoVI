@@ -33,7 +33,7 @@ public class Galeria extends Activity {
 			e.printStackTrace();  
 		}  
 		
-		ArrayList<Artista> a = Artista.selectAll(dbhelper.getWritableDatabase());
+		final ArrayList<Artista> a = Artista.selectAll(dbhelper.getWritableDatabase());
 		ArrayList<String> a2 =  new ArrayList<String>();
 		
 		Iterator<Artista> it = a.iterator();  
@@ -53,7 +53,7 @@ public class Galeria extends Activity {
 			@Override
 			public void onItemClick(AdapterView parent, View v, int position, long id) {
 		        // Do something in response to the click
-				Toast.makeText(c, "Olá mundo !"+position, Toast.LENGTH_LONG).show(); 
+				Toast.makeText(c, "Olá mundo !"+a.get(position).getNome(), Toast.LENGTH_LONG).show(); 
 		    }		
 			
 		};
