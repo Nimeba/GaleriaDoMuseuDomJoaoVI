@@ -71,6 +71,10 @@
             android:name="com.example.galeriadomuseudomjoaovi.Tour"
             android:label="@string/title_activity_tour" >
         </activity>
+         <activity
+            android:name="com.example.galeriadomuseudomjoaovi.NavDrawerMainActivity"
+            android:label="@string/title_activity_tour" >
+        </activity>
         
         <!-- Codigo para utilizacao dos mapas - Inicio -->
         <meta-data
