@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.Iterator; 
 
 import model.Artista;
+import model.Obra;
 
 import database.DataBaseHelper;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,26 +25,12 @@ public class Galeria extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_galeria);
+		setContentView(R.layout.activity_galeria);		
 		
-		
-		DataBaseHelper dbhelper = new DataBaseHelper(this);  
-		try {  
-			dbhelper.createDataBase();  
-		} catch (IOException e) {  
-			e.printStackTrace();  
-		}  
-		
-		final ArrayList<Artista> a = Artista.selectAll(dbhelper.getWritableDatabase());
-		ArrayList<String> a2 =  new ArrayList<String>();
-		
-		Iterator<Artista> it = a.iterator();  
-		while (it.hasNext()) {  
-		    a2.add(it.next().getNome()); 
-		}  
+		final ArrayList<Artista> artistas = Artista.selectAll(this);		
 		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-		        android.R.layout.simple_list_item_1, a2);
+		        android.R.layout.simple_list_item_1, Artista.getArrayName(artistas));
 		
 		ListView list = (ListView) findViewById(R.id.ListViewGaleria);
 		list.setAdapter(adapter);
@@ -53,14 +41,16 @@ public class Galeria extends Activity {
 			@Override
 			public void onItemClick(AdapterView parent, View v, int position, long id) {
 		        // Do something in response to the click
-				Toast.makeText(c, "Olá mundo !"+a.get(position).getNome(), Toast.LENGTH_LONG).show(); 
-		    }		
+				//Toast.makeText(c, "Ol‡ mundo !"+position, Toast.LENGTH_LONG).show(); 
+				Obra.setArtista(artistas.get(position));
+				startActivity(new Intent(Galeria.this, ExibirImagem.class));
+			}		
 			
 		};
 
 		list.setOnItemClickListener(mMessageClickedHandler);
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

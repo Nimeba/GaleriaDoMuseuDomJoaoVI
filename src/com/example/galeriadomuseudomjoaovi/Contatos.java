@@ -37,42 +37,52 @@ public class Contatos extends Activity implements OnClickListener {
 		return true;
 	}
 
-		
-	@Override
-	public void onClick(View v) {
-		
-		ImageView imgContatos = (ImageView) findViewById(R.id.imgContatos);
-		ImageView imgAgradecimentos = (ImageView) findViewById(R.id.imgAgradecimentos);
-		ImageView imgEquipe = (ImageView) findViewById(R.id.imgEquipe);
-		
+	//boolean isPressed = false;
 	
-		switch (v.getId()) {
 
-			case R.id.btnAgradecimentos:
-				imgAgradecimentos.setVisibility(imgAgradecimentos.VISIBLE);
-				imgContatos.setVisibility(imgContatos.INVISIBLE);
-				imgEquipe.setVisibility(imgEquipe.INVISIBLE);
-			break;
+	
+	//OnClickListener buttonListener = new OnClickListener() { //--//
+
+		@Override
+		public void onClick(View v) {
+			ImageView imgContatos = (ImageView) findViewById(R.id.imgContatos);
+			ImageView imgAgradecimentos = (ImageView) findViewById(R.id.imgAgradecimentos);
+			ImageView imgEquipe = (ImageView) findViewById(R.id.imgEquipe);
+			
+			
 		
-			case R.id.btnContatos:
-				imgContatos.setVisibility(imgContatos.VISIBLE);
-				imgAgradecimentos.setVisibility(imgAgradecimentos.INVISIBLE);
-				imgEquipe.setVisibility(imgEquipe.INVISIBLE);
-			break;
-		
-			case R.id.btnEquipe:
-				imgEquipe.setVisibility(imgEquipe.VISIBLE);
-				imgAgradecimentos.setVisibility(imgAgradecimentos.INVISIBLE);
-				imgContatos.setVisibility(imgContatos.INVISIBLE);
-			break;
-		
-			case R.id.btnVoltar:
-				startActivity(new Intent(Contatos.this, MainActivity.class));
-			break;
-		
-			default:
+			switch (v.getId()) {
+
+				case R.id.btnAgradecimentos:
+					imgAgradecimentos.setVisibility(imgAgradecimentos.VISIBLE);
+					imgContatos.setVisibility(imgContatos.INVISIBLE);
+					imgEquipe.setVisibility(imgEquipe.INVISIBLE);
+					
+					//buttonListener.setBackgroundResource(R.drawable.agradecimento2);
+					
 				break;
-		}	
-	}
-}
+			
+				case R.id.btnContatos:
+					imgContatos.setVisibility(imgContatos.VISIBLE);
+					imgAgradecimentos.setVisibility(imgAgradecimentos.INVISIBLE);
+					imgEquipe.setVisibility(imgEquipe.INVISIBLE);
+				break;
+			
+				case R.id.btnEquipe:
+					imgEquipe.setVisibility(imgEquipe.VISIBLE);
+					imgAgradecimentos.setVisibility(imgAgradecimentos.INVISIBLE);
+					imgContatos.setVisibility(imgContatos.INVISIBLE);
+				break;
+			
+				case R.id.btnVoltar:
+					startActivity(new Intent(Contatos.this, MainActivity.class));
+				break;
+			
+				default:
+					break;
+			}	
+      }
+			
+  };
+//}
 

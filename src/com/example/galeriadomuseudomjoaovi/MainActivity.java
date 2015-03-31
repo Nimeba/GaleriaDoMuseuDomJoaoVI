@@ -52,7 +52,7 @@ public class MainActivity extends FragmentActivity {
     }    
     
     public void btnGaleria(View v){
-    	startActivity(new Intent(MainActivity.this, Galeria.class));
+    	startActivity(new Intent(MainActivity.this, NavDrawerMainActivity.class));
     }
     
     public void btnTour(View v){

@@ -2,9 +2,12 @@ package model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import database.DataBaseConnection;
 import database.DataBaseHelper;
 
 public class Artista {
@@ -12,7 +15,7 @@ public class Artista {
 	private static final String Table = "artistas";
 	
 	private Integer id;
-	private String nome;	
+	private String name;	
 	
 	public Artista(){
 		
@@ -20,7 +23,7 @@ public class Artista {
 	
 	public Artista(Integer id, String nome) {
 		this.id = id;
-		this.nome = nome;
+		this.name = nome;
 	}
 	
 	public Integer getId() {
@@ -31,15 +34,19 @@ public class Artista {
 	}
 	
 	public String getNome() {
-		return nome;
+		return name;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.name = nome;
 	}
 	
-	public static ArrayList<Artista> selectAll(SQLiteDatabase db) {
+	public static ArrayList<Artista> selectAll(Context con) {
+		
+		
+		SQLiteDatabase db = DataBaseConnection.connection(con);	
 		
 		ArrayList<Artista> list = new ArrayList<Artista>();	
+		
 		list.add(new Artista(-1,"Todos"));
 		
 		String[] colunas = new String[] { "_id" , "nome"}; 
@@ -50,7 +57,7 @@ public class Artista {
 			
 			do {
 				Artista a = new Artista();
-				a.setId(c.getInt(c.getColumnIndex("nome")));
+				a.setId(c.getInt(c.getColumnIndex("id")));
 				a.setNome(c.getString(c.getColumnIndex("nome")));
 				list.add(a);
 				
@@ -62,5 +69,18 @@ public class Artista {
 	    }		
 		
 		return list;
+	}
+
+	public static ArrayList<String> getArrayName(ArrayList<Artista> a){
+		
+		ArrayList<String> array =  new ArrayList<String>();
+		
+		Iterator<Artista> it = a.iterator(); 
+		
+		while (it.hasNext()) {  
+		    array.add(it.next().getNome()); 
+		}  
+		
+		return array;
 	}
 }

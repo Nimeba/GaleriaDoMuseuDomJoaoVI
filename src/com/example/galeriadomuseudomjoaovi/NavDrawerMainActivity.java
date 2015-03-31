@@ -16,9 +16,11 @@
 
 package com.example.galeriadomuseudomjoaovi;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import model.Artista;
+import util.App;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
@@ -83,7 +85,9 @@ public class NavDrawerMainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navdrawer_activity_main);
-
+        
+        App.setContext(this.getBaseContext());
+        
         mTitle = mDrawerTitle = getTitle();
         mPlanetTitles = getResources().getStringArray(R.array.menu_galeria_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -203,7 +207,7 @@ public class NavDrawerMainActivity extends Activity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
     
-    public static class ListViewFragment extends Fragment {
+    public class ListViewFragment extends Fragment {
 
     	public static final String ARG_LIST_NUMBER = "planet_number";
     	
@@ -216,6 +220,14 @@ public class NavDrawerMainActivity extends Activity {
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
             int i = getArguments().getInt(ARG_LIST_NUMBER);
+            
+            ArrayList<String> array =  new ArrayList<String>();
+            array.add("Teste");
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(App.getContext(),
+    		        android.R.layout.simple_list_item_1, array);
+    		
+    		ListView list = (ListView) findViewById(R.id.ListViewGaleria);
+    		list.setAdapter(adapter);
             /*String planet = getResources().getStringArray(R.array.planets_array)[i];
 
             int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
