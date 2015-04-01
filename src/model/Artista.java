@@ -51,13 +51,13 @@ public class Artista {
 		
 		String[] colunas = new String[] { "_id" , "nome"}; 
 		 
-		Cursor c = db.query("artistas", colunas, null, null, null, null, "nome ASC");
+		Cursor c = db.query(Table, colunas, null, null, null, null, "nome ASC");
 		
 		if (c.moveToFirst()) {
 			
 			do {
 				Artista a = new Artista();
-				a.setId(c.getInt(c.getColumnIndex("id")));
+				a.setId(c.getInt(c.getColumnIndex("_id")));
 				a.setNome(c.getString(c.getColumnIndex("nome")));
 				list.add(a);
 				

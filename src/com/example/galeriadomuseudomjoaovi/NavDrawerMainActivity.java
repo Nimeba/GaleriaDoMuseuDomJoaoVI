@@ -19,8 +19,9 @@ package com.example.galeriadomuseudomjoaovi;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import model.Artista;
+import model.*;
 import util.App;
+import util.ListViewAdapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
@@ -43,6 +44,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 /**
  * This example illustrates a common usage of the DrawerLayout widget
@@ -86,7 +88,7 @@ public class NavDrawerMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navdrawer_activity_main);
         
-        App.setContext(this.getBaseContext());
+        App.setContext(this);
         
         mTitle = mDrawerTitle = getTitle();
         mPlanetTitles = getResources().getStringArray(R.array.menu_galeria_array);
@@ -96,13 +98,13 @@ public class NavDrawerMainActivity extends Activity {
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+        mDrawerList.setAdapter(new ListViewAdapter(this,
                 R.layout.drawer_list_item, mPlanetTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
+        
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+       getActionBar().setHomeButtonEnabled(true);
 
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the sliding drawer and the action bar app icon
@@ -136,15 +138,6 @@ public class NavDrawerMainActivity extends Activity {
         inflater.inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-    /* Called whenever we call invalidateOptionsMenu() */
-    //@Override
-    /*public boolean onPrepareOptionsMenu(Menu menu) {
-        // If the nav drawer is open, hide action items related to the content view
-        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.imageButtonGaleria).setVisible(!drawerOpen);
-        return super.onPrepareOptionsMenu(menu);
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -207,6 +200,8 @@ public class NavDrawerMainActivity extends Activity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
     
+      
+    
     public class ListViewFragment extends Fragment {
 
     	public static final String ARG_LIST_NUMBER = "planet_number";
@@ -219,46 +214,52 @@ public class NavDrawerMainActivity extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
-            int i = getArguments().getInt(ARG_LIST_NUMBER);
-            
+            int itemmenu = getArguments().getInt(ARG_LIST_NUMBER);
             ArrayList<String> array =  new ArrayList<String>();
-            array.add("Teste");
+            switch (itemmenu) {
+			case 1: 
+				ArrayList<Tecnica> tecnicas = Tecnica.selectAll(App.getContext());
+				array = Tecnica.getArrayName(tecnicas);
+				break;
+				
+			case 2: 
+				ArrayList<Obra> obras = Obra.selectAll(App.getContext());
+				array = Obra.getArrayName(obras);
+				break;
+			
+			case 3: 
+				array.add("Favoritos");
+				break;	
+
+			default:
+				ArrayList<Artista> artistas = Artista.selectAll(App.getContext());
+				array = Artista.getArrayName(artistas);
+				break;
+			}           
+            
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(App.getContext(),
     		        android.R.layout.simple_list_item_1, array);
     		
-    		ListView list = (ListView) findViewById(R.id.ListViewGaleria);
+            ListView list = (ListView) rootView.findViewById(R.id.ListViewGaleria);
     		list.setAdapter(adapter);
-            /*String planet = getResources().getStringArray(R.array.planets_array)[i];
-
-            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
-                            "drawable", getActivity().getPackageName());
-            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
-            getActivity().setTitle(planet);*/
-            
+    		list.setOnItemClickListener(selectItemListView);
+    		
             return rootView;
-        }
-    }
-        /*
-         * public static class PlanetFragment extends Fragment {
-        public static final String ARG_PLANET_NUMBER = "planet_number";
-
-        public PlanetFragment() {
-            // Empty constructor required for fragment subclasses
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
-            int i = getArguments().getInt(ARG_PLANET_NUMBER);
-            String planet = getResources().getStringArray(R.array.planets_array)[i];
-
-            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
-                            "drawable", getActivity().getPackageName());
-            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
-            getActivity().setTitle(planet);
-            return rootView;
-        }
-    }
-         * */
+        }      
+        
+        OnItemClickListener selectItemListView = new OnItemClickListener() {
+    		@Override
+    		public void onItemClick(AdapterView parent, View v, int position, long id) {
+    	        // Do something in response to the click
+    			int itemmenu = getArguments().getInt(ARG_LIST_NUMBER);
+    			Toast.makeText(App.getContext(), "Ol‡ mundo !"+position + " " +itemmenu , Toast.LENGTH_LONG).show();    		
+    			//Obra.setArtista(artistas.get(position));
+    			//startActivity(new Intent(Galeria.this, ExibirImagem.class));
+    		}		
+    		
+    	};
+    	
+    	
+    }   
+        
 }
