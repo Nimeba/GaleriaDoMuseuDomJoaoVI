@@ -10,8 +10,10 @@ import database.DataBaseConnection;
 
 public class Obra {
 	
-	private static final String Table = "galeria";	
+	private static final String Table = "galeria";
+	private static final String[] colunas = new String[] { "_id" , "obra"}; 
 	static Artista artista;
+	static Tecnica tecnica;
 	
 	private Integer id;
 	private String obra;	
@@ -47,6 +49,14 @@ public class Obra {
 
 	public static void setArtista(Artista artista) {
 		Obra.artista = artista;
+	}	
+
+	public static Tecnica getTecnica() {
+		return tecnica;
+	}
+
+	public static void setTecnica(Tecnica tecnica) {
+		Obra.tecnica = tecnica;
 	}
 	
 	public static ArrayList<Obra> selectAll(Context con) {
@@ -57,8 +67,6 @@ public class Obra {
 		ArrayList<Obra> list = new ArrayList<Obra>();	
 		
 		list.add(new Obra(-1,"Todos"));
-		
-		String[] colunas = new String[] { "_id" , "obra"}; 
 		 
 		Cursor c = db.query(Table, colunas, null, null, null, null, "obra ASC");
 		
@@ -92,5 +100,26 @@ public class Obra {
 		}  
 		
 		return array;
+	}
+
+	public static Obra selectObra(Context con) {
+		
+		SQLiteDatabase db = DataBaseConnection.connection(con);	
+		
+		Obra obra = new Obra();	
+		
+		String where = "id_artista = " + artista.getId() + " AND id_tecnica = 21"; //+tecnica.getId();
+		 
+		Cursor c = db.query(Table, colunas, where, null, null, null, null);
+		
+		if (c.moveToFirst()) {
+			obra.setId(c.getInt(c.getColumnIndex("_id")));
+			obra.setObra(c.getString(c.getColumnIndex("obra")));			
+		}	
+	    if (c != null && !c.isClosed()) {
+	        c.close();
+	    }		
+		
+		return obra;
 	}
 }

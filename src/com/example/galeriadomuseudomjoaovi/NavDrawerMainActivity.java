@@ -221,7 +221,13 @@ public class NavDrawerMainActivity extends Activity {
             ArrayList<String> array =  new ArrayList<String>();
             switch (itemmenu) {
 			case 1: 
-				ArrayList<Tecnica> tecnicas = Tecnica.selectAll(App.getContext());
+				ArrayList<Tecnica> tecnicas = new ArrayList<Tecnica>(); 
+				if(Obra.getArtista()==null){
+					tecnicas = Tecnica.selectAll(App.getContext());					
+				}
+				else{
+					tecnicas = Tecnica.selectByArtista(App.getContext(), Obra.getArtista());
+				}
 				array = Tecnica.getArrayName(tecnicas);
 				break;
 				
@@ -255,18 +261,47 @@ public class NavDrawerMainActivity extends Activity {
     		public void onItemClick(AdapterView parent, View v, int position, long id) {
     	        // Do something in response to the click
     			int itemmenu = getArguments().getInt(ARG_LIST_NUMBER);
-    			//Toast.makeText(App.getContext(), "Olá mundo !"+position + " " +itemmenu , Toast.LENGTH_LONG).show();    		
-    			//Obra.setArtista(artistas.get(position));
-    			//startActivity(new Intent(Galeria.this, ExibirImagem.class));
     			ListView list = (ListView) findViewById(R.id.left_drawer);
+    			if (itemmenu == 0) {
+    				ArrayList<Artista> artistas = Artista.selectAll(App.getContext());
+    				mPlanetTitles[0] = artistas.get(position).getNome(); 
+    				//Código para mudar o texto do item menu lateral. Fazer para o técnicas TO DO
+    						
+				}
+    			  
     			ListViewAdapter adapter = new ListViewAdapter(App.getContext(), R.layout.drawer_list_item, mPlanetTitles);
     			adapter.setEnable(itemmenu);
     			adapter.isEnabled(itemmenu);
     			list.setAdapter(adapter);
-    			mDrawerLayout.openDrawer(Gravity.LEFT);
+    			mDrawerLayout.openDrawer(Gravity.LEFT); 
+    			setObra(itemmenu, position);
     		}		
     		
     	};
+    	
+    	public void setObra(int itemmenu, int position){
+    		switch (itemmenu) {
+			case 1: 
+				ArrayList<Tecnica> tecnicas = Tecnica.selectAll(App.getContext());
+    			Obra.setTecnica(tecnicas.get(position));
+				break;
+				
+			case 2: 
+								
+				startActivity(new Intent(NavDrawerMainActivity.this, ExibirImagem.class));
+				break;
+			
+			case 3: 
+				
+				break;	
+
+			default:
+				ArrayList<Artista> artistas = Artista.selectAll(App.getContext());
+				Obra.setArtista(artistas.get(position));
+				break;
+			}           
+            
+    	}
     	
     	
     }   

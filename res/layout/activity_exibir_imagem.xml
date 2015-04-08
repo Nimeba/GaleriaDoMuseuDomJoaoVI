@@ -8,9 +8,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ExibirImagem" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <ImageView
+        android:id="@+id/imageViewObra"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"  />
 
 </RelativeLayout>
