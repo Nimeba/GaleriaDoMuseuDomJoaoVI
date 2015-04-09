@@ -37,12 +37,6 @@ public class Contatos extends Activity implements OnClickListener {
 		return true;
 	}
 
-	//boolean isPressed = false;
-	
-
-	
-	//OnClickListener buttonListener = new OnClickListener() { //--//
-
 		@Override
 		public void onClick(View v) {
 			ImageView imgContatos = (ImageView) findViewById(R.id.imgContatos);
@@ -57,8 +51,9 @@ public class Contatos extends Activity implements OnClickListener {
 					imgAgradecimentos.setVisibility(imgAgradecimentos.VISIBLE);
 					imgContatos.setVisibility(imgContatos.INVISIBLE);
 					imgEquipe.setVisibility(imgEquipe.INVISIBLE);
-					
-					//buttonListener.setBackgroundResource(R.drawable.agradecimento2);
+					findViewById(R.id.btnContatos).setBackgroundResource(R.drawable.contato1);
+					findViewById(R.id.btnEquipe).setBackgroundResource(R.drawable.equipe1);
+					findViewById(R.id.btnAgradecimentos).setBackgroundResource(R.drawable.agradecimento2);				
 					
 				break;
 			
@@ -66,12 +61,18 @@ public class Contatos extends Activity implements OnClickListener {
 					imgContatos.setVisibility(imgContatos.VISIBLE);
 					imgAgradecimentos.setVisibility(imgAgradecimentos.INVISIBLE);
 					imgEquipe.setVisibility(imgEquipe.INVISIBLE);
+					findViewById(R.id.btnContatos).setBackgroundResource(R.drawable.contato02);
+					findViewById(R.id.btnEquipe).setBackgroundResource(R.drawable.equipe1);
+					findViewById(R.id.btnAgradecimentos).setBackgroundResource(R.drawable.agradecimento1);	
 				break;
 			
 				case R.id.btnEquipe:
 					imgEquipe.setVisibility(imgEquipe.VISIBLE);
 					imgAgradecimentos.setVisibility(imgAgradecimentos.INVISIBLE);
 					imgContatos.setVisibility(imgContatos.INVISIBLE);
+					findViewById(R.id.btnContatos).setBackgroundResource(R.drawable.contato1);
+					findViewById(R.id.btnEquipe).setBackgroundResource(R.drawable.equipe2);
+					findViewById(R.id.btnAgradecimentos).setBackgroundResource(R.drawable.agradecimento1);	
 				break;
 			
 				case R.id.btnVoltar:

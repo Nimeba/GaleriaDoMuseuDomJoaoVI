@@ -52,9 +52,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="22dp"
         android:layout_toRightOf="@+id/btnEquipe"
-        android:background="@drawable/estados_botoes_2"
-        android:src="@drawable/estados_botoes_2"
+        android:background="@drawable/agradecimento1"
         tools:ignore="RtlHardcoded,ContentDescription" />
+       
 
     <ImageButton
         android:id="@+id/btnEquipe"
@@ -62,8 +62,7 @@
         android:layout_height="57dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/estados_botoes"
-        android:src="@drawable/estados_botoes"
+        android:background="@drawable/equipe1"
         tools:ignore="RtlHardcoded,ContentDescription" />
 
     <ImageButton
@@ -73,8 +72,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="26dp"
         android:layout_toLeftOf="@+id/btnEquipe"
-        android:background="@drawable/estados_botoes_3"
-        android:src="@drawable/estados_botoes_3"
+        android:background="@drawable/contato02"
         tools:ignore="RtlHardcoded,ContentDescription" />
 
 </RelativeLayout>

@@ -1,21 +1,26 @@
-<!-- fragment_screen_slide_page.xml -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
 
-    <!--  <TextView style="?android:textAppearanceMedium"
-        android:padding="16dp"
-        android:lineSpacingMultiplier="1.2"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />-->
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/imageButtonComoChegar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_comochegar"
-        android:onClick="btnComoChegar" />
+        <ImageButton
+	        android:id="@+id/imageButtonComoChegar"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="@drawable/btn_comochegar"
+	        android:onClick="btnComoChegar" 
+            tools:ignore="ScrollViewSize,ContentDescription"  />   
+
+     </RelativeLayout>
+
+ </ScrollView>
+
     
-</ScrollView>
