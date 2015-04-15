@@ -8,7 +8,7 @@
         android:minSdkVersion="9"
         android:targetSdkVersion="19" />  
     
-     <!-- Codigo para utilizacao dos mapas - Inicio -->
+     <!-- Codigo para utilizacao dos mapas - Inicio --> 
     
     <uses-feature
         android:glEsVersion="0x00020000"

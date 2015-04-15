@@ -29,7 +29,7 @@ public class Contatos extends Activity implements OnClickListener {
 		equipe.setOnClickListener(this);
 		
 	}
-
+ 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
